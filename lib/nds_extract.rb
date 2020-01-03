@@ -86,7 +86,6 @@ def gross_per_studio(collection)
   #
   # Hash whose keys are the studio names and whose values are the sum
   # total of all the worldwide_gross numbers for every movie in the input Hash
-end
 
 def movies_with_directors_set(source)
   index = 0
@@ -100,6 +99,7 @@ def movies_with_directors_set(source)
     index += 1
   end
 a_o_a_movies_by_dir
+end
 
   # GOAL: For each director, find their :movies Array and stick it in a new Array
   #
