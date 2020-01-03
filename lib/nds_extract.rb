@@ -1,6 +1,5 @@
 # Provided, don't edit
-require 'directors_database'
-
+require 'directors_database'\
 # A method we're giving you. This "flattens"  Arrays of Arrays so: [[1,2],
 # [3,4,5], [6]] => [1,2,3,4,5,6].
 
@@ -34,6 +33,16 @@ end
 # Your code after this point
 
 def movies_with_director_key(name, movies_collection)
+  result = []
+  index = 0
+
+  while index < movies_collection.length do
+    movie_data = movies_collection[index]
+    result << movie_with_director_name(name, movie_data)
+    index += 1
+  end
+
+  result
   # GOAL: For each Hash in an Array (movies_collection), provide a collection
   # of movies and a directors name to the movie_with_director_name method
   # and accumulate the returned Array of movies into a new Array that's
@@ -66,6 +75,18 @@ def gross_per_studio(collection)
 end
 
 def movies_with_directors_set(source)
+  index = 0
+  a_o_a_movies_by_dir = []
+
+  while index < source.length do
+    dir_info_hash = source[index]
+    director_name = dir_info_hash[:name]
+    directors_movies = dir_info_hash[:movies]
+    a_o_a_movies_by_dir << movies_with_director_key(director_name, directors_movies)
+    index += 1
+  end
+a_o_a_movies_by_dir
+
   # GOAL: For each director, find their :movies Array and stick it in a new Array
   #
   # INPUT:
@@ -76,7 +97,6 @@ def movies_with_directors_set(source)
   #
   # Array of Arrays containing all of a director's movies. Each movie will need
   # to have a :director_name key added to it.
-end
 
 # ----------------    End of Your Code Region --------------------
 # Don't edit the following code! Make the methods above work with this method
