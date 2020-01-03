@@ -1,7 +1,9 @@
 # Provided, don't edit
 require 'directors_database'
+require pp
 # A method we're giving you. This "flattens"  Arrays of Arrays so: [[1,2],
 # [3,4,5], [6]] => [1,2,3,4,5,6].
+end
 
 def flatten_a_o_a(aoa)
   result = []
